@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kvprobe"
+version = "0.2.0"
+description = "Is your LLM provider serving the model you're paying for? A substitution detector with a MEASURED false-positive rate."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+keywords = ["llm", "auditing", "model-substitution", "quantization", "detector", "calibration"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []            # stdlib only by design — an audit tool you can read end to end
+
+[project.optional-dependencies]
+pretty = ["rich>=13"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+kvprobe = "kvprobe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# The shipped calibration certificate. Without it the package raises NotCalibrated rather
+# than guessing, so this MUST be included in the wheel or the tool is inert on install.
+kvprobe = ["data/*.json"]
+
+[tool.kvprobe]
+license-tag = "CLEAN"
+
+[tool.cold_install]
+# Run OUT OF TREE after install: proves the wheel carries the package data this tool
+# needs, which `--help` cannot show.
+smoke = ["calibrate"]

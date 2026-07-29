@@ -1,0 +1,5 @@
+CLEAN
+
+Does not practice the filed claims. It measures third-party API behaviour using a sealed probe
+set and a detector calibrated on self-hosted ground truth. Nothing here implements the filed
+apparatus (no gate, no fail-closed binding, no authorize_reuse).
