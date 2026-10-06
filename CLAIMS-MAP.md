@@ -6,7 +6,7 @@ This file exists so the CLEAN tag is *auditable* rather than asserted.
 
 ## The line
 
-The nearest filed family covers publishing and honouring a served-model identity. Its
+The nearest claim family covers publishing and honouring a served-model identity. Its
 independent claim recites, as its terminal steps:
 
 > *"(a) **publishing a claimed identity** of a model to be served … (d) **refusing to serve
@@ -27,7 +27,7 @@ by the thing being measured, not by the thing measuring.
 
 ## Claims approached, and the step not performed
 
-| Filed claim family | What it recites | What kvprobe does instead |
+| Drafted claim family | What it recites | What kvprobe does instead |
 |---|---|---|
 | Served-identity conformance | publishing a claimed model identity; comparing served behaviour against it; **refusing to serve, or withholding responses from an output interface** | Sends ordinary requests and compares responses. Serves nothing, withholds nothing, publishes no identity. Output is a descriptive report. |
 | Calibrated substitution detection wired to admission | deriving a threshold from a control population, then **admitting or refusing traffic** on the comparison | Derives the threshold from a control population and **reports**. There is no traffic path and no admission point in this package. |
